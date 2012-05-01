@@ -1,0 +1,91 @@
+body {
+    margin-top: 70px;
+    background: url("/static/core/img/background.png");
+}
+
+.navbar-inner {
+    background-image: none;
+    background: white;
+    border-bottom: 1px solid #999;
+    height: 48px;
+}
+
+    .navbar .brand {
+        margin-left: 0;
+        color: #333;
+        font-family: 'Monoton';
+        font-size: 30px;
+    }
+
+    .navbar .nav > li > a {
+        color: #333;
+        text-shadow: none;
+        border-left: 1px solid #ccc;
+        padding: 14px 20px 15px;
+    }
+
+    .navbar .nav > li > a:hover {
+        color: #333;
+        text-decoration: underline;
+    }
+
+#loader {
+    margin-top: 70px;
+    text-align: center;
+}
+
+#pins {
+    top: 70px;
+    position: absolute;
+    background: #eee;
+}
+
+    .pin {
+        background: #fff;
+        width: 200px;
+        float: left;
+        border: 1px solid #ccc;
+        padding: 20px;
+        display: none;
+    }
+
+        .pin img {
+            width: 200px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pin p {
+            margin-bottom: 0;
+            padding-top: 15px
+        }
+
+            .pin strong {
+                color: #777;
+                font-weight: normal;
+            }
+
+#form {
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 15px;
+}
+
+    #form h1 {
+        font-family: 'Monoton';
+        text-align: center;
+        font-weight: normal;
+        margin-bottom: 15px;
+    }
+
+    form {
+        margin-bottom: 0;
+    }
+
+        textarea {
+            height: 70px;
+        }
+
+        .form-actions {
+            margin-bottom: 0;
+        }
