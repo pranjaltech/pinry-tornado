@@ -1,7 +1,7 @@
 from handlers.index import IndexHandler
-from handlers.foo import FooHandler
+from handlers.newpin import NewPinHandler
 
 url_patterns = [
   (r"/", IndexHandler),
-  (r"/foo/*", FooHandler),
+  (r"/newpin/*", NewPinHandler),
 ]
