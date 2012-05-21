@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block main %}
-    <h1>Now you see me!</h1>
+    <div id="pins"></div>
+    <div id="loader" class="container">
+        <div class="row">
+            <div class="span2 offset5">
+                <img src="{{ static_url('images/loader.gif') }}" "/static/core/img/loader.gif" alt="Loader">
+            </div>
+        </div>
+    </div>
 {% end %}

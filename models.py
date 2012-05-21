@@ -24,8 +24,11 @@ class Pin(Document):
     if not self.image:
       self.image = urllib2.urlopen(self.url).read()
       image_temp = Image.open(self.image)
+      image_temp_org = image_temp
       image_temp.thumbnail((200, 1000), Image.ANTIALIAS)
       self.image_thumbnail.new_file()
+      self.image.content_type='image/jpeg'
+      self.image_thumbnail.content_type='image/jpeg'
       image_temp.save(self.image_thumbnail, 'jpeg', quality=85)
       self.image_thumbnail.close()
     super(Pin, self).save()

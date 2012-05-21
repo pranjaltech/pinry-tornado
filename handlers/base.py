@@ -17,6 +17,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
         If JSON cannot be decoded, raises an HTTPError with status 400.
         """
+        logger.debug('Using load_json from BaseHandler')
         try:
             self.request.arguments = json.loads(self.request.body)
         except ValueError:
@@ -28,6 +29,7 @@ class BaseHandler(tornado.web.RequestHandler):
         """Find and return the argument with key 'name' from JSON request data.
         Similar to Tornado's get_argument() method.
         """
+        logger.debug('Using get_json_argument from BaseHandler')
         if default is None:
             default = self._ARG_DEFAULT
         if not self.request.arguments:

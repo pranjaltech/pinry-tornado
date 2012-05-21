@@ -1,8 +1,9 @@
 /**
+ * Pinry-Tornado
  * Based on Wookmark's endless scroll.
  */
 $(window).ready(function () {
-    var apiURL = '/api/pins/recent/'
+    var apiURL = '/pins/recent/'
     var page = 1;
     var handler = null;
     var isLoading = false;
@@ -38,9 +39,10 @@ $(window).ready(function () {
     function loadData() {
         isLoading = true;
         $('#loader').show();
-        
+		    log('Page Number: '+page);
         $.ajax({
             url: apiURL+page,
+            dataType:'json',
             success: onLoadData
         });
     };
@@ -49,26 +51,25 @@ $(window).ready(function () {
      * Receives data from the API, creates HTML for images and updates the layout
      */
     function onLoadData(data) {
-        isLoading = false;
-        $('#loader').hide();
-        
-        page++;
-        
-        var html = '';
-        var i=0, length=data.length, image;
-        for(; i<length; i++) {
-          image = data[i];
-          html += '<div class="pin">';
-              html += '<a class="fancybox" rel="pins" href="'+image.original+'">';
-                  html += '<img src="'+image.thumbnail+'" width="200" height="'+Math.round(image.height/image.width*200)+'">';
-              html += '</a>';
-              html += '<p>'+image.description+'</p>';
-          html += '</div>';
-        }
-        
-        $('#pins').append(html);
-        
-        applyLayout();
+      isLoading = false;
+      $('#loader').hide();
+      page++;
+      var html = '';
+      var i=0, length=data[0].length, image;
+      for(; i<length; i++) {
+        image = data[0][i];
+        log('Image: '+image)
+        html += '<div class="pin">';
+            html += '<a class="fancybox" rel="pins" href="'+image.original+'">';
+                html += '<img src="'+image.thumbnail+'" width="200" height="'+Math.round(image.height/image.width*200)+'">';
+            html += '</a>';
+            html += '<p>'+image.description+'</p>';
+        html += '</div>';
+      }
+    
+      $('#pins').append(html);
+    
+      applyLayout();
     };
   
     $(document).ready(new function() {
